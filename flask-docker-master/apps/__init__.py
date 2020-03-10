@@ -70,7 +70,8 @@ def create_app():
 
     @app.route(f"/{ACCESS_KEY}/citydata/<num>")
     def allcitydata(num):
-        doc = mongo.db.alldata.find_one({'_id': int(num)})
+        doc = mongo.db.table_name.find_one({'_id': int(num)})
+        print(mongo.db.list_collection_names)
         return jsonify(doc)
 
     @app.route(f"/{ACCESS_KEY}/matchcity/<words>")
@@ -101,17 +102,17 @@ def create_app():
                 city = 'Seattle'
                 state = 'WA'
         city_id = force_id(data, f"{city} {state}")
-        doc = mongo.db.alldata.find_one({'_id': int(city_id)})
+        doc = mongo.db.table_name.find_one({'_id': int(city_id)})
         return jsonify(doc)
 
     @app.route(f"/{ACCESS_KEY}/recommend/industry/<cityid>")
     def industry_rec(cityid):
         try:
-            jsn = mongo.db.alldata.find_one({'_id': int(cityid)})
+            jsn = mongo.db.table_name.find_one({'_id': int(cityid)})
             modelli = get_industry(jsn)
             res = model_render(
                 modelli, industry_scaler, industry_model, cityid)
-            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
+            mongo_obj = mongo.db.table_name.find({"_id": {"$in": res}})
             res_dict = object_format(mongo_obj)
         except:
             res_dict = {'error': 'invalid ID'}
@@ -120,10 +121,10 @@ def create_app():
     @app.route(f"/{ACCESS_KEY}/recommend/culture/<cityid>")
     def culture_rec(cityid):
         try:
-            jsn = mongo.db.alldata.find_one({'_id': int(cityid)})
+            jsn = mongo.db.table_name.find_one({'_id': int(cityid)})
             modelli = get_culture(jsn)
             res = model_render(modelli, culture_scaler, culture_model, cityid)
-            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
+            mongo_obj = mongo.db.table_name.find({"_id": {"$in": res}})
             res_dict = object_format(mongo_obj)
         except:
             res_dict = {'error': 'invalid ID'}
@@ -132,10 +133,10 @@ def create_app():
     @app.route(f"/{ACCESS_KEY}/recommend/housing/<cityid>")
     def housing_rec(cityid):
         try:
-            jsn = mongo.db.alldata.find_one({'_id': int(cityid)})
+            jsn = mongo.db.table_name.find_one({'_id': int(cityid)})
             modelli = get_housing(jsn)
             res = model_render(modelli, housing_scaler, housing_model, cityid)
-            mongo_obj = mongo.db.alldata.find({"_id": {"$in": res}})
+            mongo_obj = mongo.db.table_name.find({"_id": {"$in": res}})
             res_dict = object_format(mongo_obj)
         except:
             res_dict = {'error': 'invalid ID'}
