@@ -14,6 +14,7 @@ The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
 ## V2
 
 [Eric Ramon](https://github.com/nephylum)
+
 [Jimmy Smith]
 
 ## V1
