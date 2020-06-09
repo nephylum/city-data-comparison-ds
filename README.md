@@ -11,8 +11,11 @@ The API Docs for the DS app  can be found [Here](https://api.citrics.io/docs)
 #### Datasets used [Here](https://drive.google.com/open?id=1MdnKnqFQRhMPvxeloIAPuhl-qwhhCSbi)
 
 ## Contributors
+## V2
 
+[Eric Ramon](https://github.com/nephylum)
 
+## V1
 |                                    [Scott Maxwell](https://github.com/scottwmwork)                                   |                                          [Matthew Sessions](https://github.com/matthew-sessions)                                         |                                 [Luke Townsend](https://github.com/ldtownsend)                                 |
 |:--------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------:|
 | [<img src="https://avatars0.githubusercontent.com/u/33496996?s=400&u=454aad7eb839b42caa4cfca9357bae07c7a3325c&v=4" width = "200" />](https://github.com/) |              [<img src="https://avatars1.githubusercontent.com/u/53715422?s=400&v=4" width = "200" />](https://github.com/)              | [<img src="https://avatars1.githubusercontent.com/u/53023268?s=400&v=4" width = "200" />](https://github.com/) |
